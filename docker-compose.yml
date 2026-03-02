@@ -1,0 +1,26 @@
+services:
+  # Base configuration using YAML anchors
+  # test-base: &test-base
+  test-base:
+    build: .
+    volumes:
+      - .:/app
+      - build_data:/app/.build
+
+  # Test on the latest Perl version
+  # perl-latest:
+  #   <<: *test-base
+  #  image: perldocker/perl-tester:latest
+
+  # # Test on specific versions (e.g., 5.36)
+  # perl-536:
+  #   <<: *test-base
+  #   image: perldocker/perl-tester:5.36-bookworm
+  #
+  # # Test on older versions (e.g., 5.20)
+  # perl-520:
+  #   <<: *test-base
+  #   image: perldocker/perl-tester:5.20-buster
+
+volumes:
+  build_data:
